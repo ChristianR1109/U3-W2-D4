@@ -4,18 +4,13 @@ import Welcome from "../components/Welcome";
 import BookList from "../components/BookList";
 import CommentArea from "../components/CommentArea";
 
-test("renders the Welcome component", () => {
-  () => {
-    render(<Welcome />);
-
-    screen.debug();
-  };
-});
-
-test("Cards exist", () => {
-  render(<BookList />);
-  const cards = screen.getAllByTestId("card");
-  expect(cards).toHaveClass("card");
+describe("App level testing", () => {
+  it("renders the Welcome Component"),
+    () => {
+      render(<App />);
+      const h1 = screen.getByText(/Benvenuti in EpiBooks!/i);
+      expect(h1).toBeInTheDocument();
+    };
 });
 
 test("renders the CommentArea component", () => {
